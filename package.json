@@ -1,0 +1,21 @@
+  
+{
+  "name": "simple-async-spawn",
+  "version": "0.0.2",
+  "description": "Runs given command in child process asynchronously",
+  "main": "index.js",
+  "keywords": [
+    "spawn",
+    "spawn-async",
+    "async-spawn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antohan/simple-async-spawn.git"
+  },
+  "author": {
+    "name": "Anton Sukhodolets",
+    "email": "theAntohan@gmail.com"
+  },
+  "license": "MIT"
+}
