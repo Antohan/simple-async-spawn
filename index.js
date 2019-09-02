@@ -1,10 +1,9 @@
-const { spawn } = require('child_process');
+const { exec } = require('child_process');
 
-module.exports = function(cmd, stdio = 'inherit') {
-  const splitted = cmd.split(' ');
-  const command = splitted.shift();
+module.exports = function(cmd) {
   return new Promise((resolve, reject) => {
-    const process = spawn(command, splitted, { stdio });
+    const process = exec(cmd);
+    process.stdout.on('data', console.log);
     process.on('error', reject);
     process.on('close', resolve);
   });

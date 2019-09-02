@@ -1,7 +1,7 @@
   
 {
   "name": "simple-async-spawn",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Runs given command in child process asynchronously",
   "main": "index.js",
   "keywords": [
