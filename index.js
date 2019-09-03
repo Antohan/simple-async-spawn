@@ -1,10 +1,16 @@
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 module.exports = function(cmd) {
+  const splitted = cmd.split(' ');
+  const command = splitted.shift();
   return new Promise((resolve, reject) => {
-    const process = exec(cmd);
-    process.stdout.on('data', console.log);
-    process.on('error', reject);
-    process.on('close', resolve);
+    const childProcess = spawn(command, splitted, { stdio: 'inherit'});
+    childProcess.on('error', reject);
+    childProcess.on('close', exitCode => {
+      if (exitCode !== 0) {
+        reject(new Error(`Child process was closed with code: ${exitCode}`));
+      }
+      resolve();
+    });
   });
 }
